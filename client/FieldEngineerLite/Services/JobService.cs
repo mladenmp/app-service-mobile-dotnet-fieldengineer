@@ -18,9 +18,8 @@ namespace FieldEngineerLite
         public IMobileServiceClient MobileService = null;
         private IMobileServiceSyncTable<Job> jobTable;
 
-        // Placeholder string for Try App Service is ZUMOAPPURL
-        // To use with your own app, use URL in the form https://your-site-name.azurewebsites.net/
-        private const string MobileUrl = "ZUMOAPPURL";
+        
+        private const string MobileUrl = "https://mladenmp-test.azurewebsites.net/";
 
         public async Task InitializeAsync()
         {
@@ -33,8 +32,7 @@ namespace FieldEngineerLite
             await MobileService.SyncContext.InitializeAsync(store, StoreTrackingOptions.NotifyLocalAndServerOperations);
             jobTable = MobileService.GetSyncTable<Job>();
 
-            // This sample doesn't do any authentication. To add it, see 
-            // https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-xamarin-forms-get-started-users/
+           
         }
 
         public async Task<IEnumerable<Job>> ReadJobs(string search)
